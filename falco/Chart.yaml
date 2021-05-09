@@ -1,0 +1,7 @@
+apiVersion: v2
+version: v0.0.1
+name: falco
+dependencies:
+- name: falco
+  version: 1.11.1
+  repository: s3://qonto-helm-charts
