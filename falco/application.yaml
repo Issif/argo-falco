@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  name: falco
+spec:
+  destination:
+    namespace: falco
+    server: https://kubernetes.default.svc
+  project: monitoring
+  revisionHistoryLimit: 1
+  source:
+    helm:
+      releaseName: prometheus-rules
+      valueFiles:
+        - values.yaml
+    path: falco
+    repoURL: https://github.com/Issif/argo-falco.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
