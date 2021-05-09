@@ -1,4 +1,5 @@
-falcosidekick:
-    enabled: true
-    webui:
+falco:
+    falcosidekick:
         enabled: true
+        webui:
+            enabled: true

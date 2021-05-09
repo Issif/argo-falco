@@ -19,25 +19,9 @@ spec:
     - namespace: falco
       server: https://kubernetes.default.svc
 
-  # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
-    - group: ""
-      kind: Namespace
-
-  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
-  namespaceResourceBlacklist:
-    - group: ""
-      kind: ResourceQuota
-    - group: ""
-      kind: LimitRange
-    - group: ""
-      kind: NetworkPolicy
-
-  # Deny all namespaced-scoped resources from being created, except for Deployment and StatefulSet
+    - group: "*"
+      kind: "*"
   namespaceResourceWhitelist:
-    - group: "apps"
-      kind: Deployment
-    - group: "apps"
-      kind: DaemonSet
-    - group: "apps"
-      kind: StatefulSet
+    - group: "*"
+      kind: "*"
