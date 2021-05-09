@@ -16,7 +16,7 @@ spec:
       releaseName: falco
       valueFiles:
         - values.yaml
-    path: falco
+    path: falco/resources
     repoURL: https://github.com/Issif/argo-falco.git
     targetRevision: master
   syncPolicy:

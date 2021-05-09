@@ -12,7 +12,7 @@ spec:
   project: argo-workflow
   revisionHistoryLimit: 1
   source:
-    path: argo-workflow
+    path: argo-workflow/resources
     repoURL: https://github.com/Issif/argo-falco.git
     targetRevision: master
   syncPolicy:
