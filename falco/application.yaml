@@ -4,15 +4,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   name: falco
+  namespace: argocd
 spec:
   destination:
     namespace: falco
     server: https://kubernetes.default.svc
-  project: monitoring
+  project: falco
   revisionHistoryLimit: 1
   source:
     helm:
-      releaseName: prometheus-rules
+      releaseName: falco
       valueFiles:
         - values.yaml
     path: falco
