@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: webhook
-  namespace: argo-workflow
+  namespace: argo
 spec:
   template:
     serviceAccountName: operate-workflow-sa
@@ -24,7 +24,7 @@ spec:
               kind: Workflow
               metadata:
                 name: pod-delete-trigger
-                namespace: argo-workflow
+                namespace: argo
               spec:
                 serviceAccountName: falco-pod-delete
                 entrypoint: delete-pod

@@ -16,7 +16,7 @@ spec:
 
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   destinations:
-    - namespace: argo-workflow
+    - namespace: argo
       server: https://kubernetes.default.svc
 
   clusterResourceWhitelist:

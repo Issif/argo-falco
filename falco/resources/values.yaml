@@ -3,3 +3,7 @@ falco:
         enabled: true
         webui:
             enabled: true
+        config:
+            webhook:
+            address: http://webhook-eventsource-svc.argo-events.svc.cluster.local:12000/example
+            customHeaders: Source:falco
