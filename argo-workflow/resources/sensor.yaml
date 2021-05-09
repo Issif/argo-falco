@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: webhook
-  namespace: argo-events
+  namespace: argo-workflow
 spec:
   template:
     serviceAccountName: operate-workflow-sa
