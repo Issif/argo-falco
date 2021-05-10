@@ -23,7 +23,7 @@ spec:
               apiVersion: argoproj.io/v1alpha1
               kind: Workflow
               metadata:
-                name: pod-delete-trigger
+                generateName: pod-delete-trigger-
                 namespace: argo
               spec:
                 serviceAccountName: falco-pod-delete
