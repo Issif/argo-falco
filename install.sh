@@ -15,6 +15,7 @@ kubectl apply -f argo-events/deployment/application.yaml -n argocd
 echo "-- Install Argo Worklows --"
 kubectl create namespace argo
 kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/install.yaml
+kubectl apply -f argo-workflow/deployment/configmap.yaml -n argo
 kubectl apply -f argo-workflow/deployment/project.yaml -n argocd
 kubectl apply -f argo-workflow/deployment/application.yaml -n argocd
 
