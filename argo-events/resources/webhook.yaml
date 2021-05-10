@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: EventSource
 metadata:
   name: webhook
-  namespace: argo
+  namespace: argo-events
 spec:
   service:
     ports:
