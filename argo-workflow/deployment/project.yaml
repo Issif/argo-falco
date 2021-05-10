@@ -18,6 +18,8 @@ spec:
   destinations:
     - namespace: argo
       server: https://kubernetes.default.svc
+    - namespace: argo-events
+      server: https://kubernetes.default.svc
 
   clusterResourceWhitelist:
     - group: "*"
