@@ -25,8 +25,8 @@ kubectl apply -f falco/deployment/application.yaml -n argocd
 echo "-- Wait until Pods are up & running --"
 ARGOCD_SERVER=$(kubectl get pods -n argocd | grep argocd-server | cut -f1 -d" ")
 ARGOWORKFLOW_SERVER=$(kubectl get pods -n argo | grep argo-server | cut -f1 -d" ")
-kubectl -n argocd wait pod/${ARGOCD_SERVER} --for=condition=Ready
-kubectl -n argo wait pod/${ARGOWORKFLOW_SERVER} --for=condition=Ready
+kubectl -n argocd wait pod/${ARGOCD_SERVER} --for=condition=Ready --timeout=-1s
+kubectl -n argo wait pod/${ARGOWORKFLOW_SERVER} --for=condition=Ready --timeout=-1s
 
 echo "-- Access to ArgoCD UI --"
 ARGO_PASSWORD=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
