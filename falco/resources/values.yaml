@@ -36,8 +36,8 @@ falco:
                 and not user_expected_terminal_shell_in_container_conditions
               exceptions:
                 - name: proc_name_image_suffix
-                fields: [proc.name, container.image.repository]
-                comps: [in, endswith]
+                  fields: [proc.name, container.image.repository]
+                  comps: [in, endswith]
               output: >
                 A shell was spawned in a container with an attached terminal (user=%user.name user_loginuid=%user.loginuid %container.info
                 shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline terminal=%proc.tty container_id=%container.id image=%container.image.repository)
