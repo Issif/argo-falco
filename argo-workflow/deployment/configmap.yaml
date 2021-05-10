@@ -4,5 +4,4 @@ metadata:
   name: workflow-controller-configmap
   namespace: argo
 data:
-  parallelism: "1"
   containerRuntimeExecutor: pns
