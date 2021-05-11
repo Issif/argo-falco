@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: delete-pod-template
+  namespace: argo
 spec:
   entrypoint: delete-pod # We reference our first "template" here
   serviceAccountName: pod-delete-sa
@@ -13,7 +14,7 @@ spec:
     - name: delete-pod
       inputs:
         parameters:
-          - name: falco_event
+          - name: falco-event
         container:
           image: devopps/kubernetes-response-engine-based-on-event-driven-workflow@sha256:22ee203a33fe88f0f99968daebdcea0ca52c8a3d6f7af4c823ed78ac15b7c5db
           env:
