@@ -16,6 +16,7 @@ spec:
             type: string
             value:
               - "Terminal shell in container"
+              - "SUSECON COOKIE tampering detector"
   triggers:
     - template:
         name: delete-pod-trigger
