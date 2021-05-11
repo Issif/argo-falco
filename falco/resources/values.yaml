@@ -5,7 +5,7 @@ falco:
             enabled: true
         config:
             webhook:
-                address: http://webhook-eventsource-svc.argo-events.svc.cluster.local:12000/event
+                address: http://webhook-eventsource-svc.argo-events.svc.cluster.local:12000/falco
                 customHeaders: Source:falco
     falco:
         rulesFile:
