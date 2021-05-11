@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: pod-delete-template
+  name: delete-pod-template
   namespace: argo
 spec:
   entrypoint: delete-pod # We reference our first "template" here
-  serviceAccountName: pod-delete-sa
+  serviceAccountName: delete-pod-sa
   arguments:
     parameters:
       - name: falco-event

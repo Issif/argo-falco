@@ -5,7 +5,7 @@ metadata:
   namespace: argo-events
 spec:
   template:
-    serviceAccountName: operate-workflow-sa
+    serviceAccountName: sensor-webhook-sa
   dependencies:
     - name: falco-event
       eventSourceName: webhook
@@ -18,7 +18,7 @@ spec:
               - "Terminal shell in container"
   triggers:
     - template:
-        name: pod-delete-trigger
+        name: delete-pod-trigger
         argoWorkflow:
           group: argoproj.io
           version: v1alpha1
@@ -33,11 +33,11 @@ spec:
               apiVersion: argoproj.io/v1alpha1
               kind: Workflow
               metadata:
-                generateName: pod-delete-
+                generateName: delete-pod-
                 namespace: argo
               spec:
                 workflowTemplateRef:
-                  name: pod-delete-template
+                  name: delete-pod-template
                 arguments:
                   parameters:
                     - name: falco-event

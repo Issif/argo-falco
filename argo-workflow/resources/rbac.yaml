@@ -2,13 +2,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   namespace: argo-events
-  name: operate-workflow-sa
+  name: sensor-webhook-sa
 ---
 # Similarly you can use a ClusterRole and ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: operate-workflow-role
+  name: sensor-webhook-role
   namespace: argo-events
 rules:
   - apiGroups:
@@ -24,40 +24,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: operate-workflow-role-binding
+  name: sensor-webhook-role-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: operate-workflow-role
+  name: sensor-webhook-role
 subjects:
   - kind: ServiceAccount
-    name: operate-workflow-sa
+    name: sensor-webhook-sa
     namespace: argo-events
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: pod-delete-sa
-  namespace: argo
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: pod-delete-sa-cluster-role
-rules:
-  - apiGroups: [""]
-    resources: ["pods"]
-    verbs: ["get", "list", "delete", "patch", "watch"]
----
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: pod-delete-sa-cluster-role-binding
-roleRef:
-  kind: ClusterRole
-  name: falco-pod-delete-cluster-role
-  apiGroup: rbac.authorization.k8s.io
-subjects:
-  - kind: ServiceAccount
-    name: pod-delete-sa
-    namespace: argo
