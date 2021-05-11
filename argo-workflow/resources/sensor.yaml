@@ -9,7 +9,13 @@ spec:
   dependencies:
     - name: falco-event
       eventSourceName: webhook
-      eventName: event
+      eventName: falco
+      filters:
+        data:
+          - path: body.rule
+            type: string
+            value:
+              - "Terminal shell in container"
   triggers:
     - template:
         name: argo-workflow-trigger
@@ -26,22 +32,12 @@ spec:
                 generateName: pod-delete-trigger-
                 namespace: argo
               spec:
-                serviceAccountName: falco-pod-delete
-                entrypoint: delete-pod
+                workflowTemplateRef:
+                  name: delete-pod-template
                 arguments:
                   parameters:
-                    - name: falco_event
-                      value: "{}"
-                templates:
-                  - name: delete-pod
-                    inputs:
-                      parameters:
-                        - name: falco_event
-                    container:
-                      image: devopps/kubernetes-response-engine-based-on-event-driven-workflow@sha256:22ee203a33fe88f0f99968daebdcea0ca52c8a3d6f7af4c823ed78ac15b7c5db
-                      env:
-                        - name: BODY
-                          value: "{{inputs.parameters.falco_event}}"
+                    - name: falco-event
+                      value: {}
           parameters:
             - src:
                 dependencyName: falco-event
