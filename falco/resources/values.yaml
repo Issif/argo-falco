@@ -7,6 +7,8 @@ falco:
             webhook:
                 address: http://webhook-eventsource-svc.argo-events.svc.cluster.local:12000/falco
                 customHeaders: Source:falco
+    fakeEventGenerator:
+      enabled: false
     falco:
       rulesFile:
         - /etc/falco/falco_rules.yaml
