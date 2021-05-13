@@ -17,7 +17,7 @@ falco:
         - /etc/falco/rules.d/custom-rules.yaml
     customRules:
       custom-rules.yaml: |-
-        - rule: SUSECON COOKIE tampering detector
+        - rule: COOKIE tampering detector
           desc: Detect tampering of super precious cookie recipes
           condition: modify and (evt.arg.oldpath startswith '/usr/share/nginx' or evt.arg.path startswith '/usr/share/nginx')
           output: Cookie recipes tampering detected, secure your cookies,(uid=%user.uid container_id=%container.id container_name=%container.name image=%container.image.repository:%container.image.tag %evt.arg.oldpath)
