@@ -10,7 +10,7 @@ spec:
         targetPort: 12000
   webhook:
     # event-source can run multiple HTTP servers. Simply define a unique port to start a new HTTP server
-    falco:
+    falco-event:
       # port to run HTTP server on
       port: "12000"
       # endpoint to listen to

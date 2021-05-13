@@ -8,8 +8,8 @@ spec:
     serviceAccountName: sensor-terminal-shell-container-sa
   dependencies:
     - name: falco-event
-      eventSourceName: webhook
-      eventName: falco
+      eventSourceName: webhook-falco
+      eventName: falco-event
       filters:
         data:
           - path: body.rule
