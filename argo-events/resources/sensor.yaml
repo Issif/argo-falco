@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
-  name: webhook
+  name: terminal-shell-container
   namespace: argo-events
 spec:
   template:
-    serviceAccountName: sensor-webhook-sa
+    serviceAccountName: sensor-terminal-shell-container-sa
   dependencies:
     - name: falco-event
       eventSourceName: webhook
@@ -16,7 +16,7 @@ spec:
             type: string
             value:
               - "Terminal shell in container"
-              - "SUSECON COOKIE tampering detector"
+              - "COOKIE tampering detector"
   triggers:
     - template:
         name: delete-pod-trigger

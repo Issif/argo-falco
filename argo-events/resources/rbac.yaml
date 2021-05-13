@@ -2,13 +2,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   namespace: argo-events
-  name: sensor-webhook-sa
+  name: sensor-terminal-shell-container-sa
 ---
 # Similarly you can use a ClusterRole and ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: sensor-webhook-role
+  name: sensor-terminal-shell-container-role
   namespace: argo-events
 rules:
   - apiGroups:
@@ -24,12 +24,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: sensor-webhook-role-binding
+  name: sensor-terminal-shell-container-role-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: sensor-webhook-role
+  name: sensor-terminal-shell-container-role
 subjects:
   - kind: ServiceAccount
-    name: sensor-webhook-sa
+    name: sensor-terminal-shell-container-sa
     namespace: argo-events
