@@ -20,6 +20,7 @@ kubectl apply -f argo-workflow/deployment/project.yaml -n argocd
 kubectl apply -f argo-workflow/deployment/application.yaml -n argocd
 echo ""
 echo "-- Install Falco --"
+kubectl create namespace falco
 kubectl apply -f falco/deployment/project.yaml -n argocd
 kubectl apply -f falco/deployment/application.yaml -n argocd
 echo ""
