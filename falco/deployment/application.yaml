@@ -17,7 +17,7 @@ spec:
       valueFiles:
         - values.yaml
     path: falco/resources
-    repoURL: https://github.com/Issif/argo-falco.git
+    repoURL: https://github.com/danpopSD/argo-falco.git
     targetRevision: master
   syncPolicy:
     automated:
