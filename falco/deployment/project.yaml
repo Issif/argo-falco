@@ -12,7 +12,7 @@ spec:
 
   # Allow manifests to deploy from any Git repos
   sourceRepos:
-    - "https://github.com/Issif/argo-falco.git"
+    - "https://github.com/danpopSD/argo-falco.git"
 
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   destinations:
