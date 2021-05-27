@@ -16,7 +16,7 @@ spec:
         parameters:
           - name: falco-event
       container:
-        image: devopps/kubernetes-response-engine-based-on-event-driven-workflow@sha256:22ee203a33fe88f0f99968daebdcea0ca52c8a3d6f7af4c823ed78ac15b7c5db
+        image: devopps/kubernetes-response-engine-based-on-event-driven-workflow@sha256:976fd126b6f1e7852690db8c92beddf4220e93bb71a084b65ebc8e0f77c28693
         env:
           - name: BODY
             value: "{{inputs.parameters.falco-event}}"
